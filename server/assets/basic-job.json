@@ -1,0 +1,159 @@
+{
+  "apiVersion": "batch/v1",
+  "kind": "Job",
+  "metadata": {
+    "name": "build",
+    "namespace": "ai-build-server"
+  },
+  "spec": {
+    "completions": 1,
+    "template": {
+      "metadata": {
+        "name": "build",
+        "namespace": "ai-build-server"
+      },
+      "spec": {
+        "restartPolicy": "Never",
+        "initContainers": [
+          {
+            "name": "init-clone-repo",
+            "image": "alpine",
+            "args": [
+              "clone",
+              "--single-branch",
+              "--",
+              "ssh://git@git-server.ai-creators-studio.svc.cluster.local:2222/git-server/repos/node-test45.git",
+              "/context"
+            ],
+            "volumeMounts": [
+              {
+                "name": "context",
+                "mountPath": "/context"
+              },
+              {
+                "name": "ssh-key",
+                "mountPath": "/root/.ssh"
+              }
+            ],
+            "env": [
+              {
+                "name": "GIT_SSH_COMMAND",
+                "value": "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+              }
+            ]
+          }
+        ],
+        "containers": [
+          {
+            "name": "kaniko",
+            "image": "gcr.io/kaniko-project/executor:v0.15.0",
+            "args": [
+              "--cache=true",
+              "--dockerfile=/context/Dockerfile",
+              "--context=/context",
+              "--destination=890606282206.dkr.ecr.eu-west-1.amazonaws.com/ai-template:latest"
+            ],
+            "env": [
+              {
+                "name": "AWS_REGION",
+                "value": "eu-west-1"
+              },
+              {
+                "name": "NPM_TOKEN",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "npmconfig",
+                    "key": "token"
+                  }
+                }
+              },
+              {
+                "name": "NPM_PROJECTS_TOKEN",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "npmconfig",
+                    "key": "projects-token"
+                  }
+                }
+              },
+              {
+                "name": "MONGODB_URI",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "shared-config",
+                    "key": "MONGODB_URI"
+                  }
+                }
+              },
+              {
+                "name": "DOMAIN",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "shared-config",
+                    "key": "DOMAIN"
+                  }
+                }
+              }
+            ],
+            "volumeMounts": [
+              {
+                "name": "context",
+                "mountPath": "/context"
+              },
+              {
+                "name": "aws-secret",
+                "mountPath": "/root/.aws/"
+              },
+              {
+                "name": "credconfig",
+                "mountPath": "/kaniko/.docker/"
+              }
+            ],
+            "resources": {
+              "limits": {
+                "cpu": "1.9",
+                "memory": "7680Mi"
+              },
+              "requests": {
+                "cpu": "1.9",
+                "memory": "7680Mi"
+              }
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "name": "aws-secret",
+            "secret": {
+              "secretName": "aws-secret"
+            }
+          },
+          {
+            "name": "credconfig",
+            "configMap": {
+              "name": "credconfig"
+            }
+          },
+          {
+            "name": "context",
+            "emptyDir": {}
+          }
+        ],
+        "nodeSelector": {
+          "kops.k8s.io/instancegroup": "builds-node"
+        },
+        "tolerations": [
+          {
+            "key": "dedicated",
+            "operator": "Equal",
+            "value": "builds",
+            "effect": "NoSchedule"
+          }
+        ]
+      }
+    },
+    "backoffLimit": 1,
+    "activeDeadlineSeconds": 3600,
+    "ttlSecondsAfterFinished": 300
+  }
+}

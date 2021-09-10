@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-body">
+    <div class="clearfix"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-2 ">
+          <div class="period mt-1">
+            <div class="btn-group btn-group-type" role="group">
+              <button type="button" (click)="loadType('AITHEON_SERVICE')" class="btn btn-sm btn-outline ripple-effect btn-type"
+                [class.active]="selectedType === 'AITHEON_SERVICE'">Aitheon Server</button>
+              <button type="button" (click)="loadType('USER_SERVICE')" class="btn btn-sm btn-outline ripple-effect btn-type"
+                [class.active]="selectedType === 'USER_SERVICE'">Users Service</button>
+            </div>
+          </div>
+        </nav>
+
+        <main class="col-sm-9 col-md-10">
+          <tabset #tabset>
+
+            <!-- Builds Queue -->
+
+            <tab heading="Builds Queue">
+              <ai-build-queue [currentType]='currentType' (onChangeType)='onChangeType($event)'></ai-build-queue>
+            </tab>
+
+            <!-- Docker Templates -->
+
+            <tab heading="Docker Templates">
+              <div class="ai-monaco-ngx-monaco-editor">
+                <ai-docker [currentType]='currentType'(onChangeType)='onChangeType($event)' ></ai-docker>
+              </div>
+            </tab>
+
+          </tabset>
+        </main>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>

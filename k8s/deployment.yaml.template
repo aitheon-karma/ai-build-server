@@ -1,0 +1,74 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ${NAME}
+  labels:
+    app: ${NAME}
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ${NAME}
+    spec:
+      containers:
+      - env:
+        - name: MONGODB_URI
+          valueFrom:
+            secretKeyRef:
+              name: db-config
+              key: MONGODB_URI
+        - name: DOMAIN
+          valueFrom:
+            secretKeyRef:
+              name: shared-config
+              key: DOMAIN
+        - name: MAILER_FROM
+          valueFrom:
+            secretKeyRef:
+              name: shared-config
+              key: MAILER_FROM
+        - name: NPM_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: npmconfig
+              key: token
+        - name: NODE_ENV
+          value: production
+        envFrom:
+         - configMapRef:
+             name: ${NAME}
+         - secretRef:
+             name: ${NAME}
+        image: ${FULL_IMAGE_NAME}
+        imagePullPolicy: "Always"
+        name: ${NAME}
+        ports:
+        - containerPort: 3000
+        readinessProbe:
+          httpGet: # make an HTTP request
+            port: 3000 # port to use
+            path: /api # endpoint to hit
+            scheme: HTTP # or HTTPS
+          initialDelaySeconds: 30 # how long to wait before checking
+          periodSeconds: 3 # how long to wait between checks
+          successThreshold: 1 # how many successes to hit before accepting
+          failureThreshold: 3 # how many failures to accept before failing
+          timeoutSeconds: 1 # how long to wait for a response
+        volumeMounts:
+        - name: ssh-git-aitheon
+          mountPath: "/opt/app/keys/aitheon"
+        - name: ssh-github
+          mountPath: "/opt/app/keys/github"
+      volumes:
+      - name: ssh-git-aitheon
+        secret:
+          secretName: ssh-git-aitheon
+      - name: ssh-github
+        secret:
+          secretName: ssh-github

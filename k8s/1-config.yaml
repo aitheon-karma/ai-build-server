@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-build-server
+data:
+  ENABLE_CORS: "true"
+  MAX_CONCURRENT_BUILDS: "5"
+  MAX_TRIES: "1"
+  WEBHOOK_BRANCH: "master"
+  BUILD_LIMIT_CPU: "1.9"
+  BUILD_LIMIT_MEMORY: "7680Mi"
+  BUILD_REQUEST_CPU: "1.9"
+  BUILD_REQUEST_MEMORY: "7680Mi"
+  LIB_BRANCHES: "Angular-9"
+  LIBS_TO_BUILD: "git@github.com:Aitheon/core-client.git, git@github.com:Aitheon/core-server.git, git@github.com:Aitheon/socket-type-generator.git, git@github.com:Aitheon/ai-creators-studio-runner.git, git@github.com:Aitheon/isaac-sdk.git, git@github.com:Aitheon/sandbox.git, git@github.com:Aitheon/node-red-transporter.git, git@github.com:Aitheon/aos-build.git"

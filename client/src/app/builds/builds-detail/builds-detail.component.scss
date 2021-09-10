@@ -1,0 +1,23 @@
+.title-point {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.ai-monaco-ngx-monaco-editor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+  .ngx-monaco-editor {
+    min-height: 100px; 
+    display:block;
+    flex: 1;
+  }
+
+  .output {
+    background: #000;
+    color:#fff;
+    max-height: 400px;
+    overflow: auto;
+  }

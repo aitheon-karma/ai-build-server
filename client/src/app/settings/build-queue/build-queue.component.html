@@ -1,0 +1,20 @@
+<div class="container-lg-fluid">
+    <!-- <h2 class="mt-2">Build queue</h2> -->
+    <div class="card settings-wrap">
+      <div class="card-body">
+        <form [formGroup]="buildForm" (ngSubmit)="onSubmit()">
+          <div class="col-3 docker-new mt-2">
+            <label for="maxParallel">Build queue</label>
+            <input class="form-control inputfield" id="maxParallel" min="1" type="number" formControlName="maxParallel" name="maxParallel">
+            <small *ngIf="submitted && buildForm.get('maxParallel').hasError('required')" class="text-danger">
+              Value Is Required!
+            </small>
+          </div>
+          <div class="d-flex justify-content-end">
+            <ai-loading class="button-save" *ngIf="loading"></ai-loading>
+            <button *ngIf="!loading" type="submit" class="btn btn-primary button-save">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

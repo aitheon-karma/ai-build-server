@@ -1,0 +1,1111 @@
+{
+  "organization": "5ea1724163273a00120ec936",
+  "graphNodes": [
+    {
+      "_id": "5ea6bd58ecec57065982c7ee",
+      "graphId": "5ea17241e47eff00115d0e3b",
+      "settings": {
+        "ticks": [
+          {
+            "enabled": false,
+            "_id": "5ea6bd58188446142f21aa6b",
+            "name": "Example Tick 1",
+            "interval": "1000"
+          },
+          {
+            "enabled": true,
+            "_id": "5ea6bd58188446142f21aa6a",
+            "name": "Example Tick 2",
+            "interval": "3000"
+          }
+        ]
+      },
+      "node": {
+        "_id": "5ea6bd58188446142f21aa65",
+        "name": "Provisional Node",
+        "type": "TEMPLATE_NODE",
+        "inputs": [
+          {
+            "multiple": false,
+            "core": false,
+            "_id": "5ea6bd74188446142f21aac6",
+            "placement": "CENTER",
+            "name": "Input",
+            "socket": "5e876e2f3e096b0c62e4a3bd"
+          },
+          {
+            "multiple": false,
+            "core": false,
+            "_id": "5ea6be41188446142f21ac24",
+            "placement": "LEFT",
+            "name": "Input 2",
+            "socket": "5e876e2f3e096b0c62e4a3bd"
+          }
+        ],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ea6be41188446142f21ac28",
+            "placement": "RIGHT",
+            "name": "Output 1",
+            "socket": "5e876e2f3e096b0c62e4a3bd"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ea6be41188446142f21ac27",
+            "placement": "CENTER",
+            "name": "Output 2",
+            "socket": "5e876e2f3e096b0c62e4a3bd"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ea6be41188446142f21ac26",
+            "placement": "LEFT",
+            "name": "Output 3",
+            "socket": "5e876e2f3e096b0c62e4a3bd"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "5ead75467b2c4db0112345b2",
+      "graphId": "5ea17241e47eff00115d0e3b",
+      "settings": {
+        "ticks": [],
+        "settingParams": [
+          {
+            "name": "SocketClientService.BOT_USERNAME",
+            "default": "SG_TEST_BOT_2"
+          }
+        ]
+      },
+      "node": {
+        "_id": "5eb4214ac76dbe0012ce8ede",
+        "name": "1.0.10",
+        "type": "USER_NODE",
+        "project": "5ea17adacf316000124fcc8b",
+        "release": "5eb4214afcb2d30011da7361",
+        "inputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5eb4214ac76dbe0012ce8ee3",
+            "socket": "5ea2e7a686febb001324b698",
+            "name": "SocketClientService.sendMessage"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5eb4214ac76dbe0012ce8ee2",
+            "socket": "5ea2f4b186febb001324b7bf",
+            "name": "SocketClientService.requestConnectionRequest"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5eb4214ac76dbe0012ce8ee1",
+            "socket": "5ea2f3e186febb001324b78f",
+            "name": "SocketClientService.processConnectionRequest"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5eb4214ac76dbe0012ce8ee0",
+            "socket": "5ea2fe9beba6bc00138e7cd2",
+            "name": "SocketClientService.typingStatus"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5eb4214ac76dbe0012ce8edf",
+            "socket": "5ea17740e47eff00115d0eec",
+            "name": "SocketClientService.createChannel"
+          }
+        ],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5eb4214ac76dbe0012ce8ee6",
+            "socket": "5ea2e7a686febb001324b698",
+            "name": "SocketClientService.messageReceived"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5eb4214ac76dbe0012ce8ee5",
+            "socket": "5ea17740e47eff00115d0eec",
+            "name": "SocketClientService.channelCreated"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5eb4214ac76dbe0012ce8ee4",
+            "socket": "5ea17740e47eff00115d0eec",
+            "name": "SocketClientService.channelUpdated"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "5ead75487b2c4db0112345b3",
+      "graphId": "5ea17241e47eff00115d0e3b",
+      "settings": {
+        "ticks": [],
+        "settingParams": [
+          {
+            "name": "SocketClientService.BOT_USERNAME",
+            "default": "SG_TEST_BOT"
+          }
+        ]
+      },
+      "node": {
+        "_id": "5ea6d959215d3e00112ee45c",
+        "name": "Lex Release 0.0.3",
+        "type": "USER_NODE",
+        "project": "5ea1857fcf316000124fccb3",
+        "release": "5ea6d958d1cd4d0011f8b507",
+        "inputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ea6d959215d3e00112ee45e",
+            "socket": "5ea2e7a686febb001324b698",
+            "name": "RandomService.incomingMessage"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ea6d959215d3e00112ee45d",
+            "socket": "5ea17740e47eff00115d0eec",
+            "name": "RandomService.createdChannel"
+          }
+        ],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ea6d959215d3e00112ee462",
+            "socket": "5ea2e7a686febb001324b698",
+            "name": "RandomService.sendMessage"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ea6d959215d3e00112ee461",
+            "socket": "5ea2f3e186febb001324b78f",
+            "name": "RandomService.connectionRequestAction"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ea6d959215d3e00112ee460",
+            "socket": "5ea2f4b186febb001324b7bf",
+            "name": "RandomService.connectionRequest"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ea6d959215d3e00112ee45f",
+            "socket": "5ea2fe9beba6bc00138e7cd2",
+            "name": "RandomService.setTyping"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "5eb126c58df4dfd29906e628",
+      "graphId": "5ea17241e47eff00115d0e3b",
+      "settings": {
+        "ticks": [
+          {
+            "enabled": false,
+            "_id": "5eb126c594d23b0012d429d2",
+            "name": "Example Tick 1",
+            "interval": "1000"
+          },
+          {
+            "enabled": true,
+            "_id": "5eb126c594d23b0012d429d1",
+            "name": "Example Tick 2",
+            "interval": "3000"
+          }
+        ]
+      },
+      "node": {
+        "_id": "5eb126c594d23b0012d429cc",
+        "name": "Provisional Node",
+        "type": "TEMPLATE_NODE",
+        "inputs": [
+          {
+            "multiple": false,
+            "core": false,
+            "_id": "5eb1270d8df4dfd29906e62a",
+            "placement": "LEFT",
+            "name": "send message",
+            "socket": "5e8dcb56c40a95001117cbd4"
+          }
+        ],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5eb127148df4dfd29906e62b",
+            "placement": "RIGHT",
+            "name": "message received",
+            "socket": "5e8dcb56c40a95001117cbd4"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "5ec242db066fb6aeffe9e2a0",
+      "graphId": "5ea17241e47eff00115d0e3b",
+      "settings": {
+        "ticks": [],
+        "settingParams": [
+          {
+            "name": "IOService.USERS",
+            "default": "[]"
+          }
+        ]
+      },
+      "node": {
+        "_id": "5ec55794898f000011e88c32",
+        "name": "Web client router",
+        "type": "USER_NODE",
+        "project": "5ebd0a20fcb2d30011da7aba",
+        "release": "5ec5579392b3320012dff476",
+        "inputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec55794898f000011e88c34",
+            "socket": "5ea2e7a686febb001324b698",
+            "name": "IOService.inputMessageFromDownstream"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec55794898f000011e88c33",
+            "socket": "5ea2e7a686febb001324b698",
+            "name": "IOService.inputMessageFromUpstream"
+          }
+        ],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec55794898f000011e88c36",
+            "socket": "5ea2e7a686febb001324b698",
+            "name": "IOService.messageOutUpstream"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec55794898f000011e88c35",
+            "socket": "5ea2e7a686febb001324b698",
+            "name": "IOService.messageOutDownstream"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "5ec24756c864baaa6bf42a0a",
+      "graphId": "5ea17241e47eff00115d0e3b",
+      "settings": {
+        "ticks": [],
+        "settingParams": [
+          {
+            "name": "IOServiceIN.USERS",
+            "default": "[]"
+          },
+          {
+            "name": "WebClientInterfaceNode.BOT_USERNAME",
+            "default": "lex_bot"
+          }
+        ]
+      },
+      "node": {
+        "_id": "5ec54cc9898f000011e8745b",
+        "name": "Web client interface node\t",
+        "type": "USER_NODE",
+        "project": "5ebcfd8dfcb2d30011da7aa9",
+        "release": "5ec54cc992b3320012dff37c",
+        "inputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec54cc9898f000011e8745c",
+            "socket": "5ea2e7a686febb001324b698",
+            "name": "IOServiceIN.inputMessageFromDownstream"
+          }
+        ],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec54cc9898f000011e8745d",
+            "socket": "5ea2e7a686febb001324b698",
+            "name": "IOServiceIN.messageOutDownstream"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "5ec3abfc02a1571491894178",
+      "graphId": "5ea17241e47eff00115d0e3b",
+      "settings": {
+        "ticks": [
+          {
+            "enabled": false,
+            "_id": "5ec3aa80898f000011e7a285",
+            "name": "Example Tick 1",
+            "interval": "1000"
+          },
+          {
+            "enabled": true,
+            "_id": "5ec3aa80898f000011e7a284",
+            "name": "Example Tick 2",
+            "interval": "3000"
+          }
+        ]
+      },
+      "node": {
+        "_id": "5ec3aa80898f000011e7a27f",
+        "name": "Provisional Node 1",
+        "type": "TEMPLATE_NODE",
+        "inputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec3aa8ed9fc4c58a133a4fc",
+            "name": "In",
+            "socket": "5e876e2f3e096b0c62e4a3bd"
+          },
+          {
+            "multiple": false,
+            "core": false,
+            "_id": "5ec3ab9b898f000011e7a2fe",
+            "name": "CREATED IN MARKET",
+            "socket": "5e8b33cc7891f6128a3c43e2"
+          }
+        ],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec3aa99d9fc4c58a133a4fe",
+            "placement": "RIGHT",
+            "name": "Out",
+            "socket": "5e876e2f3e096b0c62e4a3bd"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e42",
+      "graphId": "5ea17241e47eff00115d0e41",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78b9",
+        "name": "BILLING_MANAGER",
+        "type": "SERVICE_NODE",
+        "service": "BILLING_MANAGER",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e44",
+      "graphId": "5ea17241e47eff00115d0e43",
+      "settings": {},
+      "node": {
+        "_id": "5e8364ce2967db00123d12d6",
+        "name": "COMMUNICATIONS",
+        "type": "SERVICE_NODE",
+        "service": "COMMUNICATIONS",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e3e",
+      "graphId": "5ea17241e47eff00115d0e3d",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78be",
+        "name": "CONTACTS",
+        "type": "SERVICE_NODE",
+        "service": "CONTACTS",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e40",
+      "graphId": "5ea17241e47eff00115d0e3f",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78c3",
+        "name": "DRIVE",
+        "type": "SERVICE_NODE",
+        "service": "DRIVE",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e48",
+      "graphId": "5ea17241e47eff00115d0e47",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78c8",
+        "name": "ITEM_MANAGER",
+        "type": "SERVICE_NODE",
+        "service": "ITEM_MANAGER",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e4a",
+      "graphId": "5ea17241e47eff00115d0e49",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78cd",
+        "name": "MAIL",
+        "type": "SERVICE_NODE",
+        "service": "MAIL",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e4c",
+      "graphId": "5ea17241e47eff00115d0e4b",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78d2",
+        "name": "MAILBOX",
+        "type": "SERVICE_NODE",
+        "service": "MAILBOX",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e46",
+      "graphId": "5ea17241e47eff00115d0e45",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78d7",
+        "name": "MARKETPLACE",
+        "type": "SERVICE_NODE",
+        "service": "MARKETPLACE",
+        "inputs": [],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5eb572aac76dbe0012ce9db4",
+            "name": "ServiceOutputsService.requestApproved",
+            "socket": "5eb56b88c76dbe0012ce9c07"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5eb572aac76dbe0012ce9db5",
+            "name": "ServiceOutputsService.requestRejected",
+            "socket": "5eb56b88c76dbe0012ce9c07"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e4e",
+      "graphId": "5ea17241e47eff00115d0e4d",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78dc",
+        "name": "MESSAGES",
+        "type": "SERVICE_NODE",
+        "service": "MESSAGES",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e57",
+      "graphId": "5ea17241e47eff00115d0e56",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78e1",
+        "name": "NOTES",
+        "type": "SERVICE_NODE",
+        "service": "NOTES",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e50",
+      "graphId": "5ea17241e47eff00115d0e4f",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78e6",
+        "name": "ORCHESTRATOR",
+        "type": "SERVICE_NODE",
+        "service": "ORCHESTRATOR",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e55",
+      "graphId": "5ea17241e47eff00115d0e54",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78eb",
+        "name": "STATUS",
+        "type": "SERVICE_NODE",
+        "service": "STATUS",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e59",
+      "graphId": "5ea17241e47eff00115d0e58",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78f0",
+        "name": "SYSTEM_GRAPH",
+        "type": "SERVICE_NODE",
+        "service": "SYSTEM_GRAPH",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e52",
+      "graphId": "5ea17241e47eff00115d0e51",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78f5",
+        "name": "TREASURY",
+        "type": "SERVICE_NODE",
+        "service": "TREASURY",
+        "inputs": [],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e726205c6dd21be0fc63d69",
+            "name": "Treasury output 1",
+            "socket": "5e6955a1420f5e0e0fbd4ed9"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "5ea17241e47eff00115d0e5b",
+      "graphId": "5ea17241e47eff00115d0e5a",
+      "settings": {},
+      "node": {
+        "_id": "5e6f5ac185b75e0014ae78fa",
+        "name": "USERS",
+        "type": "SERVICE_NODE",
+        "service": "USERS",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea17475e47eff00115d0e88",
+      "graphId": "5ea17475e47eff00115d0e87",
+      "settings": {},
+      "node": {
+        "_id": "5e733a2c9e4d3c0012a33282",
+        "name": "CREATORS_STUDIO",
+        "type": "SERVICE_NODE",
+        "service": "CREATORS_STUDIO",
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "_id": "5ea1747ce47eff00115d0e8f",
+      "graphId": "5ea1747ce47eff00115d0e8e",
+      "settings": {},
+      "node": {
+        "_id": "5e80e601b34a790011f12ac1",
+        "name": "PROJECT_MANAGER",
+        "type": "SERVICE_NODE",
+        "service": "PROJECT_MANAGER",
+        "inputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c674",
+            "socket": "5e96e9ce8c1dad0011c9f227",
+            "name": "GraphInputsService.createTask"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c675",
+            "socket": "5e96e9ce8c1dad0011c9f227",
+            "name": "GraphInputsService.updateTask"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c676",
+            "socket": "5e8f3623181a330012a0dbf9",
+            "name": "GraphInputsService.deleteTask"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c677",
+            "socket": "5e8f610f5246280012166437",
+            "name": "GraphInputsService.createProject"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c678",
+            "socket": "5e8f610f5246280012166437",
+            "name": "GraphInputsService.updateProject"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c679",
+            "socket": "5e8f624a524628001216643a",
+            "name": "GraphInputsService.archiveProject"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c67a",
+            "socket": "5e9064c275ad3600121e3655",
+            "name": "GraphInputsService.addStage"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c67b",
+            "socket": "5e90619475ad3600121e364c",
+            "name": "GraphInputsService.createEpic"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c67c",
+            "socket": "5e90619475ad3600121e364c",
+            "name": "GraphInputsService.updateEpic"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c67d",
+            "socket": "5e9061f775ad3600121e364f",
+            "name": "GraphInputsService.archiveEpic"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c67e",
+            "socket": "5e90639675ad3600121e3652",
+            "name": "GraphInputsService.createComment"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9d56926b56630014e4c67f",
+            "socket": "5e90639675ad3600121e3652",
+            "name": "GraphInputsService.createReply"
+          }
+        ],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e97ed8c8c1dad0011c9f820",
+            "name": "GraphOutputsService.taskCreated",
+            "socket": "5e96e9ce8c1dad0011c9f227"
+          },
+          {
+            "multiple": true,
+            "core": true,
+            "_id": "5e99b023fc78260012d98286",
+            "name": "GraphOutputsService.coreTaskCreated",
+            "socket": "5e96e9ce8c1dad0011c9f227"
+          },
+          {
+            "multiple": true,
+            "core": true,
+            "_id": "5e9d464b28b58b001268d97f",
+            "name": "GraphOutputsService.coreTaskUpdated",
+            "socket": "5e96e9ce8c1dad0011c9f227"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e97ed8c8c1dad0011c9f821",
+            "name": "GraphOutputsService.taskDeleted",
+            "socket": "5e96e9ce8c1dad0011c9f227"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e97ed8c8c1dad0011c9f822",
+            "name": "GraphOutputsService.taskUpdated",
+            "socket": "5e96e9ce8c1dad0011c9f227"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e97ed8c8c1dad0011c9f823",
+            "name": "GraphOutputsService.taskStateChanged",
+            "socket": "5e96e9ce8c1dad0011c9f227"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9089ef75ad3600121e36eb",
+            "name": "GraphOutputsService.commentAdded",
+            "socket": "5e90639675ad3600121e3652"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9089ef75ad3600121e36ec",
+            "name": "GraphOutputsService.commentReplied",
+            "socket": "5e90639675ad3600121e3652"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9089ef75ad3600121e36ed",
+            "name": "GraphOutputsService.epicCreated",
+            "socket": "5e90619475ad3600121e364c"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9089ef75ad3600121e36ee",
+            "name": "GraphOutputsService.epicUpdated",
+            "socket": "5e90619475ad3600121e364c"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9089ef75ad3600121e36ef",
+            "name": "GraphOutputsService.epicArchived",
+            "socket": "5e90619475ad3600121e364c"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9089ef75ad3600121e36f0",
+            "name": "GraphOutputsService.epicDeleted",
+            "socket": "5e90619475ad3600121e364c"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9089ef75ad3600121e36f1",
+            "name": "GraphOutputsService.epicNewTask",
+            "socket": "5e90619475ad3600121e364c"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9089ef75ad3600121e36f2",
+            "name": "GraphOutputsService.projectCreated",
+            "socket": "5e8f610f5246280012166437"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9089ef75ad3600121e36f3",
+            "name": "GraphOutputsService.projectUpdated",
+            "socket": "5e8f610f5246280012166437"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9089ef75ad3600121e36f4",
+            "name": "GraphOutputsService.projectArchived",
+            "socket": "5e8f610f5246280012166437"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5e9089ef75ad3600121e36f5",
+            "name": "GraphOutputsService.projectDeleted",
+            "socket": "5e8f610f5246280012166437"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "5ec64bc9ade6fa7db11943f8",
+      "graphId": "5ec528fe898f000011e82f12",
+      "settings": {
+        "ticks": [],
+        "settingParams": [
+          {
+            "name": "ExamplesService.mySettingParam",
+            "default": "myDefaultValue"
+          }
+        ]
+      },
+      "node": {
+        "_id": "5ec64bae898f000011e90ef4",
+        "name": "Echo Node",
+        "type": "USER_NODE",
+        "project": "5ec649b3fa1efc00118ecf9c",
+        "release": "5ec64badfa1efc00118ecfa3",
+        "inputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec64bae898f000011e90ef5",
+            "socket": "5e8dcb56c40a95001117cbd4",
+            "name": "ExamplesService.inputAny"
+          }
+        ],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec64bae898f000011e90ef7",
+            "socket": "5e8dcb56c40a95001117cbd4",
+            "name": "ExamplesService.outputAny"
+          },
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec64bae898f000011e90ef6",
+            "socket": "5e8dcb56c40a95001117cbd4",
+            "name": "ExamplesService.intervalOutputAny"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "5ec528fe898f000011e82f13",
+      "graphId": "5ec528fe898f000011e82f12",
+      "settings": {},
+      "node": {
+        "_id": "5ebd32de0dc6c60011e98e5d",
+        "name": "CUSTOMER_SUPPORT",
+        "type": "SERVICE_NODE",
+        "service": "CUSTOMER_SUPPORT",
+        "inputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec65765898f000011e9164d",
+            "socket": "5e8dcb56c40a95001117cbd4",
+            "name": "ConversationsService.incomingMessage"
+          }
+        ],
+        "outputs": [
+          {
+            "multiple": true,
+            "core": false,
+            "_id": "5ec5146a898f000011e80f29",
+            "name": "ConversationsService.echo",
+            "socket": "5ea2e7a686febb001324b698"
+          }
+        ]
+      }
+    }
+  ],
+  "connections": [
+    {
+      "source": {
+        "graphNode": "5ead75487b2c4db0112345b3",
+        "output": {
+          "multiple": true,
+          "core": false,
+          "_id": "5ea6d959215d3e00112ee462",
+          "socket": "5ea2e7a686febb001324b698",
+          "name": "RandomService.sendMessage"
+        }
+      },
+      "target": {
+        "graphNode": "5ead75467b2c4db0112345b2",
+        "input": {
+          "multiple": true,
+          "core": false,
+          "_id": "5eb4214ac76dbe0012ce8ee3",
+          "socket": "5ea2e7a686febb001324b698",
+          "name": "SocketClientService.sendMessage"
+        }
+      }
+    },
+    {
+      "source": {
+        "graphNode": "5ead75487b2c4db0112345b3",
+        "output": {
+          "multiple": true,
+          "core": false,
+          "_id": "5ea6d959215d3e00112ee460",
+          "socket": "5ea2f4b186febb001324b7bf",
+          "name": "RandomService.connectionRequest"
+        }
+      },
+      "target": {
+        "graphNode": "5ead75467b2c4db0112345b2",
+        "input": {
+          "multiple": true,
+          "core": false,
+          "_id": "5eb4214ac76dbe0012ce8ee2",
+          "socket": "5ea2f4b186febb001324b7bf",
+          "name": "SocketClientService.requestConnectionRequest"
+        }
+      }
+    },
+    {
+      "source": {
+        "graphNode": "5ead75487b2c4db0112345b3",
+        "output": {
+          "multiple": true,
+          "core": false,
+          "_id": "5ea6d959215d3e00112ee45f",
+          "socket": "5ea2fe9beba6bc00138e7cd2",
+          "name": "RandomService.setTyping"
+        }
+      },
+      "target": {
+        "graphNode": "5ead75467b2c4db0112345b2",
+        "input": {
+          "multiple": true,
+          "core": false,
+          "_id": "5eb4214ac76dbe0012ce8ee0",
+          "socket": "5ea2fe9beba6bc00138e7cd2",
+          "name": "SocketClientService.typingStatus"
+        }
+      }
+    },
+    {
+      "source": {
+        "graphNode": "5ead75467b2c4db0112345b2",
+        "output": {
+          "multiple": true,
+          "core": false,
+          "_id": "5eb4214ac76dbe0012ce8ee6",
+          "socket": "5ea2e7a686febb001324b698",
+          "name": "SocketClientService.messageReceived"
+        }
+      },
+      "target": {
+        "graphNode": "5ead75487b2c4db0112345b3",
+        "input": {
+          "multiple": true,
+          "core": false,
+          "_id": "5ea6d959215d3e00112ee45e",
+          "socket": "5ea2e7a686febb001324b698",
+          "name": "RandomService.incomingMessage"
+        }
+      }
+    },
+    {
+      "source": {
+        "graphNode": "5ead75467b2c4db0112345b2",
+        "output": {
+          "multiple": true,
+          "core": false,
+          "_id": "5eb4214ac76dbe0012ce8ee5",
+          "socket": "5ea17740e47eff00115d0eec",
+          "name": "SocketClientService.channelCreated"
+        }
+      },
+      "target": {
+        "graphNode": "5ead75487b2c4db0112345b3",
+        "input": {
+          "multiple": true,
+          "core": false,
+          "_id": "5ea6d959215d3e00112ee45d",
+          "socket": "5ea17740e47eff00115d0eec",
+          "name": "RandomService.createdChannel"
+        }
+      }
+    },
+    {
+      "source": {
+        "graphNode": "5ec24756c864baaa6bf42a0a",
+        "output": {
+          "multiple": true,
+          "core": false,
+          "_id": "5ec54cc9898f000011e8745d",
+          "socket": "5ea2e7a686febb001324b698",
+          "name": "IOServiceIN.messageOutDownstream"
+        }
+      },
+      "target": {
+        "graphNode": "5ec242db066fb6aeffe9e2a0",
+        "input": {
+          "multiple": true,
+          "core": false,
+          "_id": "5ec55794898f000011e88c33",
+          "socket": "5ea2e7a686febb001324b698",
+          "name": "IOService.inputMessageFromUpstream"
+        }
+      }
+    },
+    {
+      "source": {
+        "graphNode": "5ec64bc9ade6fa7db11943f8",
+        "output": {
+          "multiple": true,
+          "core": false,
+          "_id": "5ec64bae898f000011e90ef6",
+          "socket": "5e8dcb56c40a95001117cbd4",
+          "name": "ExamplesService.intervalOutputAny"
+        }
+      },
+      "target": {
+        "graphNode": "5ec528fe898f000011e82f13",
+        "input": {
+          "multiple": true,
+          "core": false,
+          "_id": "5ec65765898f000011e9164d",
+          "socket": "5e8dcb56c40a95001117cbd4",
+          "name": "ConversationsService.incomingMessage"
+        }
+      }
+    },
+    {
+      "source": {
+        "graphNode": "5ec242db066fb6aeffe9e2a0",
+        "output": {
+          "multiple": true,
+          "core": false,
+          "_id": "5ec55794898f000011e88c35",
+          "socket": "5ea2e7a686febb001324b698",
+          "name": "IOService.messageOutDownstream"
+        }
+      },
+      "target": {
+        "graphNode": "5ec64bc9ade6fa7db11943f8",
+        "input": {
+          "multiple": true,
+          "core": false,
+          "_id": "5ec64bae898f000011e90ef5",
+          "socket": "5e8dcb56c40a95001117cbd4",
+          "name": "ExamplesService.inputAny"
+        }
+      }
+    }
+  ]
+}

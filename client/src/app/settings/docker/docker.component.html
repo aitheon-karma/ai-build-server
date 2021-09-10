@@ -1,0 +1,37 @@
+<div class="container-lg-fluid">
+  <!-- <h2 class="mt-2">Docker</h2> -->
+  <div class="card settings-wrap">
+    <div class="card-body">
+      <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+        <div class="col-3 docker-new mt-2">
+          <label for="dockerLang">Languages</label>
+          <ng-select
+            [items]="languages"
+            bindLabel="name"
+            bindValue="id"
+            labelForId="state"
+            [multiple]="true"
+            placeholder="Select cities"
+            clearAllText="Clear"
+            formControlName="languages">
+          </ng-select>
+
+          <small *ngIf="submitted && settingsForm.get('languages').hasError('required')" class="text-danger">
+            Languages Is Required!
+          </small>
+        </div>
+
+        <div class="ai-monaco-ngx-monaco-editor mt-2">
+          <label class="ml-3">Docker File</label>
+          <monaco-editor style="min-height: 700px;" (fileChange)="onFileChange($event)" [file]="file" [theme]="monacoOptions.theme" class="ngx-monaco-editor"></monaco-editor>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <ai-loading class="button-save" *ngIf="loading"></ai-loading>
+          <button *ngIf="!loading" type="submit" class="btn btn-primary button-save mt-3">Save</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

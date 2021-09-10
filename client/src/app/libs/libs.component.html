@@ -1,0 +1,22 @@
+
+<div class="clearfix"></div>
+<div class="row">
+  <div class="loadng-wrapper" *ngIf="loading">
+    <ai-loading></ai-loading>
+  </div>
+ <div class="col-12">
+  <div class="card-columns">
+    <div class="card mb-4 posirion-card"  *ngFor="let lib of libsAitheon">
+      <div class="card-body comunity-card" (click)="detail(lib)">
+        <h4><a  class="lib-title ">{{ lib.name }}</a>
+          <!-- <button class="btn btn-link pull-right btn-sm" (click)="edit(lib)" *ngIf="!canEdit">Edit</button> -->
+        </h4>
+        <div class="lib-desc">
+            version: {{lib.version}}
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>

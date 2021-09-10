@@ -1,0 +1,33 @@
+.nav {
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,0,0,.03);
+    box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+    border-radius: 0;
+    background: #fff;
+  }
+  
+  .nav-item {
+    width: 100%;
+  }
+  
+  .nav-item + .nav-item {
+    margin-left: 0;
+  }
+  
+  
+  .nav-link {
+    border-radius: 0;
+    color: #545454;
+    &.active {
+      color: #3197ee;
+      background: rgba(0, 0, 0, 0.04);
+    }
+    &:hover{
+      background: rgba(0, 0, 0, 0.1);
+    }
+  
+    i.fa {
+      padding-right: .5rem;
+    }
+  }
+  

@@ -1,0 +1,33 @@
+{
+  "apiVersion": "extensions/v1beta1",
+  "kind": "Ingress",
+  "metadata": {
+    "name": "temp",
+    "annotations": {
+      "kubernetes.io/ingress.class": "nginx",
+      "nginx.ingress.kubernetes.io/rewrite-target": "/$1",
+      "alb.ingress.kubernetes.io/scheme": "internet-facing"
+    },
+    "labels": {
+      "app": "temp",
+      "simulator": "true"
+    }
+  },
+  "spec": {
+    "rules": [
+      {
+        "http": {
+          "paths": [
+            {
+              "path": "/temp/?(.*)",
+              "backend": {
+                "serviceName": "temp",
+                "servicePort": 3000
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

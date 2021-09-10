@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-build-server
+  annotations:
+    branch: beta
+data:
+  ENABLE_CORS: "true"
+  WEBHOOK_BRANCH: "beta"
+  BUILD_LIMIT_CPU: "1.9"
+  BUILD_LIMIT_MEMORY: "7680Mi"
+  BUILD_REQUEST_CPU: "1.9"
+  BUILD_REQUEST_MEMORY: "7680Mi"

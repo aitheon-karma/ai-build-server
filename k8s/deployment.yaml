@@ -1,0 +1,84 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ai-build-server
+  labels:
+    app: ai-build-server
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ai-build-server
+    spec:
+      containers:
+      - env:
+        - name: MONGODB_URI
+          valueFrom:
+            secretKeyRef:
+              name: db-config
+              key: MONGODB_URI
+        - name: DOMAIN
+          valueFrom:
+            secretKeyRef:
+              name: shared-config
+              key: DOMAIN
+        - name: MAILER_FROM
+          valueFrom:
+            secretKeyRef:
+              name: shared-config
+              key: MAILER_FROM
+        - name: NPM_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: npmconfig
+              key: token
+        - name: NPM_PROJECTS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: npmconfig
+              key: projects-token
+        - name: NODE_ENV
+          value: production
+        envFrom:
+         - configMapRef:
+             name: ai-build-server
+         - secretRef:
+             name: ai-build-server
+        image: 890606282206.dkr.ecr.eu-west-1.amazonaws.com/ai-build-server:master-fixed
+        imagePullPolicy: "Always"
+        name: ai-build-server
+        ports:
+        - containerPort: 3000
+        readinessProbe:
+          httpGet: # make an HTTP request
+            port: 3000 # port to use
+            path: /api # endpoint to hit
+            scheme: HTTP # or HTTPS
+          initialDelaySeconds: 30 # how long to wait before checking
+          periodSeconds: 3 # how long to wait between checks
+          successThreshold: 1 # how many successes to hit before accepting
+          failureThreshold: 3 # how many failures to accept before failing
+          timeoutSeconds: 1 # how long to wait for a response
+        volumeMounts:
+        - name: ssh-git-aitheon
+          mountPath: "/opt/app/keys/aitheon"
+        - name: ssh-github
+          mountPath: "/opt/app/keys/github"
+        - name: aws-secret
+          mountPath: "/root/.aws/"
+      volumes:
+      - name: ssh-git-aitheon
+        secret:
+          secretName: ssh-git-aitheon
+      - name: ssh-github
+        secret:
+          secretName: ssh-github
+      - name: aws-secret
+        secret:
+          secretName: aws-secret

@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-6">
+    <h3>Sandbox Settings</h3>
+    <form class="mb-3" *ngIf="!loading && settingsForm != null; " novalidate [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-12">
+          <!-- sandboxRunnerVersion -->
+          <div class="form-group">
+            <label for="sandboxRunnerVersion">Sandbox Runner Version</label>
+            <input type="text" class="form-control" id="sandboxRunnerVersion" placeholder="Enter sandboxRunnerVersion" formControlName="sandboxRunnerVersion" />
+            <small *ngIf="submitted && settingsForm.get('sandboxRunnerVersion').hasError('required')" class="text-danger">
+              Sandbox Runner Version is required
+            </small>
+          </div>
+          <!-- End sandboxRunnerVersion-->
+
+           <!-- sandboxVersion -->
+           <div class="form-group">
+            <label for="sandboxVersion">Sandbox Version</label>
+            <input type="text" class="form-control" id="sandboxVersion" placeholder="Enter sandboxVersion" formControlName="sandboxVersion" />
+            <small *ngIf="submitted && settingsForm.get('sandboxVersion').hasError('required')" class="text-danger">
+              Sandbox Version is required
+            </small>
+          </div>
+          <!-- End sandboxVersion-->
+
+            <!-- maxAvailableHotSandboxes -->
+            <div class="form-group">
+              <label for="maxAvailableHotSandboxes">Max Available Hot Sandboxes</label>
+              <input type="number" min="0" class="form-control" id="maxAvailableHotSandboxes" placeholder="Enter maxAvailableHotSandboxes" formControlName="maxAvailableHotSandboxes" />
+              <small *ngIf="submitted && settingsForm.get('maxAvailableHotSandboxes').hasError('required')" class="text-danger">
+                Max Available Hot Sandboxes is required
+              </small>
+            </div>
+            <!-- End maxAvailableHotSandboxes-->
+
+          <!-- Error -->
+          <div class="row" *ngIf="error">
+            <div class="col">
+              <div class="alert alert-danger">{{ error }}</div>
+            </div>
+          </div>
+          <!-- End Error -->
+        </div>
+        <div class="col-12"  *ngIf="!isNew">
+          <button type="submit" class="btn btn-primary mr-2">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-6">
+    <h3>Stats and Actions</h3>
+    <button class="btn btn-primary" (click)="updateHotSandboxImage()">Update Hot Sandbox images</button> <br><br>
+    <button class="btn btn-danger" (click)="terminateAllTemplates()">Terminate Hot Sandbox images</button>
+  </div>
+</div>

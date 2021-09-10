@@ -1,0 +1,31 @@
+<ai-header></ai-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-sm-3 col-md-2 hidden-xs-down menu">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/builds">
+            <i class="fa fa-puzzle-piece"></i> Builds </a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/deployments">
+            <i class="fa fa-puzzle-piece"></i> Deployment </a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/sandbox-templates">
+            <i class="fa fa-file"></i> Sandbox Templates </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/settings">
+            <i class="fa fa-cogs"></i> Settings </a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/libs">
+            <i class="fa fa-book"></i> Libs </a>
+        </li> -->
+
+      </ul>
+    </nav>
+
+    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

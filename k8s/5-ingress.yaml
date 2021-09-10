@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "ai-alb-ingress"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/proxy-body-size: '100m'
+    alb.ingress.kubernetes.io/scheme: internet-facing
+  labels:
+    app: ai-alb-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /build-server/?(.*)
+        backend:
+          serviceName: "ai-build-server"
+          servicePort: 3000

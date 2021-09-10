@@ -1,0 +1,34 @@
+.ai-monaco-ngx-monaco-editor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+  .ngx-monaco-editor {
+    height: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .period {
+
+    .btn {
+        box-shadow: none;
+    }
+    .active {
+        color: #fff;
+        background-color: #3197EE;
+        border-color: #3197EE;
+    }
+}
+
+.btn-type {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.btn-group-type {
+    flex-direction: column;
+    display: flex;
+}

@@ -1,0 +1,99 @@
+{
+  "apiVersion": "extensions/v1beta1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "temp",
+    "labels": {
+      "app": "temp",
+      "simulator": "true"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "temp"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "env": [
+              {
+                "name": "MONGODB_URI",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "shared-config",
+                    "key": "MONGODB_URI"
+                  }
+                }
+              },
+              {
+                "name": "DOMAIN",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "shared-config",
+                    "key": "DOMAIN"
+                  }
+                }
+              },
+              {
+                "name": "NPM_TOKEN",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "npmconfig",
+                    "key": "token"
+                  }
+                }
+              },
+              {
+                "name": "NODE_ENV",
+                "value": "production"
+              },
+              {
+                "name": "ENABLE_CORS",
+                "value": "true"
+              }
+            ],
+            "image": "890606282206.dkr.ecr.eu-west-1.amazonaws.com/dev-server",
+            "command": ["/bin/sh"],
+            "args": ["-c", "/opt/app/start.sh"],
+            "imagePullPolicy": "Always",
+            "name": "temp",
+            "ports": [
+              {
+                "containerPort": 3000
+              }
+            ],
+            "volumeMounts": [
+            ],
+            "resources": {
+              "limits": {
+                "cpu": "0.9",
+                "memory": "3840Mi"
+              },
+              "requests": {
+                "cpu": "0.9",
+                "memory": "2048Mi"
+              }
+            }
+          }
+        ],
+        "volumes": [
+        ],
+        "nodeSelector": {
+          "kops.k8s.io/instancegroup": "builds-node"
+        },
+        "tolerations": [
+          {
+            "key": "dedicated",
+            "operator": "Equal",
+            "value": "builds",
+            "effect": "NoSchedule"
+          }
+        ]
+      }
+    }
+  }
+}

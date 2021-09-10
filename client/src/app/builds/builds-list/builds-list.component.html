@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="card-body">
+    <h2>Builds</h2>
+    <div class="clearfix"></div>
+
+    <!-- All builds -->
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Status
+          </th>
+          <th>
+            Start
+          </th>
+          <th>
+            End
+          </th>
+          <th>
+            &nbsp;
+          </th>
+        </tr>
+      </thead>
+      <tr *ngFor="let build of builds" (click)="goToDetail(build)" class="items">
+        <td>
+          <span>{{ build.name }} <small *ngIf="build.project">{{ build.project }}</small></span>
+        </td>
+        <td>{{build.type}}</td>
+        <td class="{{ build.status | buildStatus }}">
+          <i class="fa {{ build.status | buildStatusIcon }}"></i>
+          <span class="pl-1">{{ build.status }}</span>
+        </td>
+        <td>
+          <span *ngIf="build.startDate">{{ build.startDate | momentFormat:'MM/DD/YYYY h:mm:ss a' }}</span>
+          <span *ngIf="!build.startDate"> - </span>
+        </td>
+        <td>
+          <span *ngIf="build.endDate">{{ build.endDate | momentFormat:'MM/DD/YYYY h:mm:ss a' }}</span>
+          <span *ngIf="!build.endDate"> - </span>
+        </td>
+        <td>
+          <a class="btn btn-outline btn-sm" (click)="cancelBuild(build, $event)" *ngIf="build.status === 'IN_PROGRESS' || build.status === 'PENDING'"><i
+              class="fa fa-times pr-2 text-danger"></i>Cancel</a>
+          <a class="btn btn-outline btn-sm" (click)="restartBuild(build, $event)" *ngIf="build.status === 'ERROR' || build.status === 'CANCELED' "><i
+            class="fa fa-refresh pr-2 text-primary"></i>Restart</a>
+        </td>
+      </tr>
+    </table>
+
+    <div *ngIf="!builds.length && !loading" class="empty-table">
+      No Builds yet
+    </div>
+
+    <div class="loadng-wrapper col-12" *ngIf="loading">
+      <ai-loading></ai-loading>
+    </div>
+
+    <!-- <button (click)="goIT()">create</button> -->
+  </div>
+</div>

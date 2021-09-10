@@ -1,0 +1,23 @@
+.table {
+    thead {
+        tr {
+            th {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.empty-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.items {
+    &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+    }
+}

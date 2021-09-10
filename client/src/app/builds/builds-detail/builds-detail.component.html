@@ -1,0 +1,43 @@
+<div class="container-lg-fluid">
+  <h2 class="mt-2">{{currentBuild.name}}</h2>
+  <div class="card settings-wrap">
+    <div class="card-body">
+      <div class="col-4 d-flex justify-content-between">
+        <span class="title-point">Name:</span>
+        <span>{{currentBuild.name}}</span>
+      </div>
+      <div class="col-4 d-flex justify-content-between">
+        <span class="title-point ">Status:</span>
+        <span class="{{ currentBuild.status | buildStatus }}"><i class="fa {{ currentBuild.status | buildStatusIcon }}"></i><span class="pl-1">{{currentBuild.status}}</span></span>
+      </div>
+      <div class="col-4 d-flex justify-content-between">
+        <span class="title-point">Git URL:</span>
+        <span>{{currentBuild.gitUrl}}</span>
+      </div>
+      <div class="col-4 d-flex justify-content-between">
+        <span class="title-point">Git Branch:</span>
+        <span>{{currentBuild.gitBranch}}</span>
+      </div>
+      <div class="col-4 d-flex justify-content-between">
+        <span class="title-point">Git Commit:</span>
+        <a href="https://github.com/Aitheon/{{ currentBuild.k8sNamespace }}/commit/{{ currentBuild.headCommit }}" target="_blank"> <span>{{ currentBuild.headCommit }}</span> </a>
+      </div>
+      <div class="col-4 d-flex justify-content-between">
+        <span class="title-point">Started:</span>
+        <span *ngIf="!currentBuild.startDate"> - </span>
+        <span *ngIf="currentBuild.startDate">{{ currentBuild.startDate | momentFormat:'MM/DD/YYYY h:mm:ss a'}}</span>
+      </div>
+      <div class="col-4 d-flex justify-content-between">
+        <span class="title-point">Ended:</span>
+        <span *ngIf="!currentBuild.endDate"> - </span>
+        <span *ngIf="currentBuild.endDate">{{ currentBuild.endDate | momentFormat:'MM/DD/YYYY h:mm:ss a' }}</span>
+      </div>
+      <div class="">
+        <label class="ml-3 title-point">Output</label>
+        <div class="output p-3" #scrollMe >
+          <div *ngFor="let line of currentBuild.output">{{ line }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

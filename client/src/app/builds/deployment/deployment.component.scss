@@ -1,0 +1,18 @@
+.images {
+  position: relative;
+  &:hover {
+    .btn-deploy {
+      display: block;
+    }
+  }
+  .btn-deploy {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+}
+
+.list-group-item {
+  background-color: transparent !important;
+}

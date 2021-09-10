@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-3">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let service of services" (click)="selectService(service)">
+            {{ service.name }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-9">
+        <div *ngIf="selectedService">
+          <p><b>{{ selectedService.name }}</b></p>
+          Available Images:
+          <ul class="list-group">
+            <li class="list-group-item images" *ngFor="let image of images" >
+              <a target="_blank" href="https://github.com/aitheon/{{ selectedService.repositoryName }}/commit/{{ image.commitTag }}">
+                GitHub Commit: {{ image.commitTag }} 
+                <span class="badge badge-primary mr-2" *ngFor="let tag of image.branchTags">{{ tag }}</span>
+                 <br>
+                Image Pushed At: {{ image.imagePushedAt }}
+              </a>
+              <button class="btn btn-success btn-deploy pull-right btn-sm" (click)="deploy(image)" type="button">Deploy</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

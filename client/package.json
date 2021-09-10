@@ -1,0 +1,25 @@
+{
+  "name": "ai-build-server",
+  "version": "0.0.4",
+  "scripts": {
+    "ng": "$(npm bin)/ng",
+    "start": "$(npm bin)/ng serve",
+    "build": "$(npm bin)/ng build --aot",
+    "build:prod": "$(npm bin)/ng build --aot --prod --base-href /build-server/ && npm run docs",
+    "watch": "$(npm bin)/ng build --watch=true --aot",
+    "lib:watch": "$(npm bin)/ng build @aitheon/build-server --watch",
+    "lib:version": "cd projects/aitheon/build-server && npm version minor",
+    "lib:build": "$(npm bin)/ng build @aitheon/build-server",
+    "lib:publish": "npm run lib:build && npm publish dist/aitheon/build-server",
+    "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./projects/",
+    "typedoc": "typedoc"
+  },
+  "private": true,
+  "dependencies": {
+    "@aitheon/core-client": "1.9.5",
+    "monaco-editor": "^0.16.2",
+    "ngx-monaco": "^0.8.0",
+    "ngx-monaco-editor": "^7.0.0"
+  },
+  "devDependencies": {}
+}

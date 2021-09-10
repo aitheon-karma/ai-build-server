@@ -1,0 +1,22 @@
+{
+  "apiVersion": "v1",
+  "kind": "Service",
+  "metadata": {
+    "name": "ai-build-server",
+    "labels": {
+      "simulator": "true"
+    }
+  },
+  "spec": {
+    "ports": [
+      {
+        "port": 3000,
+        "targetPort": 3000,
+        "name": "http"
+      }
+    ],
+    "selector": {
+      "app": "ai-build-server"
+    }
+  }
+}

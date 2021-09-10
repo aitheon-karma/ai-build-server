@@ -1,0 +1,439 @@
+{
+  "id": "ai-system-graph-123",
+  "nodes": {
+    "112a4aae-8b16-4482-87ec-eb53d3d808d1": {
+      "id": "112a4aae-8b16-4482-87ec-eb53d3d808d1",
+      "data": {
+        "name": "Sales Service",
+        "type": "SERVICE",
+        "serviceId": "TEMPLATE",
+        "sockets": {
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "Quote Accepted",
+              "type": "quoteProto"
+            },
+            {
+              "name": "New Email",
+              "type": "quoteProto"
+            },
+            {
+              "name": "Lead Stage Changed",
+              "type": "quoteProto"
+            },
+            {
+              "name": "New Lead",
+              "type": "quoteProto"
+            },
+            {
+              "name": "New Campaign",
+              "type": "quoteProto"
+            },
+            {
+              "name": "Campaign Started",
+              "type": "quoteProto"
+            },
+            {
+              "name": "Campaign Ended",
+              "type": "quoteProto"
+            }
+          ]
+        }
+      },
+      "inputs": {},
+      "outputs": {
+        "quoteAccepted": {
+          "handler": "QuotesService.quoteAccepted",
+          "connections": [
+            {
+              "node": "75dcf3d8-57d4-4362-98d0-7c36e5e146ea",
+              "input": "ApproverService.inputOfApprover",
+              "data": {}
+            }
+          ]
+        },
+        "New Email": {
+          "connections": [
+          ]
+        },
+        "Lead Stage Changed": {
+          "connections": []
+        },
+        "New Lead": {
+          "connections": []
+        },
+        "New Campaign": {
+          "connections": []
+        },
+        "Campaign Started": {
+          "connections": []
+        },
+        "Campaign Ended": {
+          "connections": []
+        }
+      },
+      "position": [
+        0,
+        0
+      ],
+      "name": "Node"
+    },
+    "75dcf3d8-57d4-4362-98d0-7c36e5e146ea": {
+      "id": "75dcf3d8-57d4-4362-98d0-7c36e5e146ea",
+      "data": {
+        "name": "Set Approver",
+        
+        "project": {
+          "_id": "5e3af3c001a4510011586cf0",
+          "projectType": "COMPUTE_NODE"
+        },
+
+        "settings": {
+          "Proto Type": "Quote Proto"
+        },
+        "type": null,
+        "projectId": null,
+        "inferenceModelId": null,
+        "training": {
+          "enabled": false,
+          "interval": 0,
+          "consensusConfirmations": 0,
+          "permissions": {
+            "owner": false,
+            "admin": false,
+            "user": false,
+            "specialist": false
+          }
+        },
+        "isComputeNode": true,
+        "sockets": {
+          "inputs": [
+            {
+              "name": "Input",
+              "type": "quoteProto"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "Approved",
+              "type": "quoteProto"
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "inputOfApprover": {
+          "handler":"ApproverService.inputOfApprover",
+          "connections": [
+            {
+              "node": "112a4aae-8b16-4482-87ec-eb53d3d808d1",
+              "output": "QuotesService.quoteAccepted",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "outputs": {
+        "approved": {
+          "handler": "ApproverService.approved",
+          "connections": [
+            {
+              "node": "17d9ccbf-8f9f-4c48-b498-8c441fb853b2",
+              "input": "QueryTreasuryService.inputOfQuery",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "ticks": {
+        "myTick": {
+          "handler": "ApproverService.myTick",
+          "interval": 5000
+        }
+      },
+      "position": [
+        325,
+        -61
+      ],
+      "name": "Node"
+    },
+    "17d9ccbf-8f9f-4c48-b498-8c441fb853b2": {
+      "id": "17d9ccbf-8f9f-4c48-b498-8c441fb853b2",
+      "data": {
+        "name": "Query Treasury for payment Verification",
+        "projectName": "",
+        "settings": {
+          "Proto Type": "Quote Proto"
+        },
+        "type": null,
+
+        "project": {
+          "_id": "5e3af56a01a4510011586cf8",
+          "projectType": "COMPUTE_NODE"
+        },
+
+        "inferenceModelId": null,
+        "training": {
+          "enabled": false,
+          "interval": 0,
+          "consensusConfirmations": 0,
+          "permissions": {
+            "owner": false,
+            "admin": false,
+            "user": false,
+            "specialist": false
+          }
+        },
+        "isComputeNode": true,
+        "sockets": {
+          "inputs": [
+            {
+              "name": "Input",
+              "type": "quoteProto"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "Payment Received",
+              "type": "quoteProto"
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "inputOfQuery": {
+          "handler": "QueryTreasuryService.inputOfQuery",
+          "connections": [
+            {
+              "node": "75dcf3d8-57d4-4362-98d0-7c36e5e146ea",
+              "output": "ApproverService.approved",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "outputs": {
+        "paymentReceived": {
+          "handler": "QueryTreasuryService.paymentReceived",
+          "connections": [
+            {
+              "node": "39e96e7d-cf41-4258-b1da-a9c11e886c99",
+              "input": "SwitchFunctionService.switchInput",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "position": [
+        682,
+        -97
+      ],
+      "name": "Node"
+    },
+    "39e96e7d-cf41-4258-b1da-a9c11e886c99": {
+      "id": "39e96e7d-cf41-4258-b1da-a9c11e886c99",
+      "data": {
+        "name": "Switch Function",
+        "projectName": "",
+        "settings": {
+          "Switch Property": "order Type",
+          "case 1": "Project",
+          "case 2": "Order"
+        },
+        "type": null,
+       
+        "project": {
+          "_id": "5e3b027793543c0016d8379a",
+          "projectType": "COMPUTE_NODE"
+        },
+
+        "inferenceModelId": null,
+        "training": {
+          "enabled": false,
+          "interval": 0,
+          "consensusConfirmations": 0,
+          "permissions": {
+            "owner": false,
+            "admin": false,
+            "user": false,
+            "specialist": false
+          }
+        },
+        "isComputeNode": true,
+        "settingsCustomizable": true,
+        "sockets": {
+          "inputs": [
+            {
+              "name": "Input",
+              "type": "quoteProto"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "Project",
+              "type": "quoteProto"
+            },
+            {
+              "name": "Order",
+              "type": "quoteProto"
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "switchInput": {
+          "handler": "SwitchFunctionService.switchInput",
+          "connections": [
+            {
+              "node": "17d9ccbf-8f9f-4c48-b498-8c441fb853b2",
+              "output": "QueryTreasuryService.paymentReceived",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "outputs": {
+        "projectOutput": {
+          "handler": "SwitchFunctionService.projectOutput",
+          "connections": [
+            {
+              "node": "34a856ec-41e9-4a9b-991d-26059ea7af6f",
+              "input": "ProjectsService.createProject",
+              "data": {}
+            }
+          ]
+        },
+        "orderOutput": {
+          "handler": "SwitchFunctionService.orderOutput",
+          "connections": [
+            {
+              "node": "7f8027c0-99a3-4c27-8ce8-715d9b15d6e5",
+              "input": "OrdersService.createOrder",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "position": [
+        1017.6770936981865,
+        -157.5489510947857
+      ],
+      "name": "Node"
+    },
+    "7f8027c0-99a3-4c27-8ce8-715d9b15d6e5": {
+      "id": "7f8027c0-99a3-4c27-8ce8-715d9b15d6e5",
+      "data": {
+        "name": "Create Order",
+        "projectName": "",
+        "settings": {
+          "Name Property Map": "clientName"
+        },
+        "type": null,
+        
+        "project": {
+          "_id": "5e3b066093543c0016d83802",
+          "projectType": "COMPUTE_NODE"
+        },
+
+        "inferenceModelId": null,
+        "training": {
+          "enabled": false,
+          "interval": 0,
+          "consensusConfirmations": 0,
+          "permissions": {
+            "owner": false,
+            "admin": false,
+            "user": false,
+            "specialist": false
+          }
+        },
+        "isComputeNode": true,
+        "sockets": {
+          "inputs": [
+            {
+              "name": "Input",
+              "type": "quoteProto"
+            }
+          ],
+          "outputs": []
+        }
+      },
+      "inputs": {
+        "createOrder": {
+          "handler": "OrdersService.createOrder",
+          "connections": [
+            {
+              "node": "39e96e7d-cf41-4258-b1da-a9c11e886c99",
+              "output": "SwitchFunctionService.orderOutput",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "outputs": {},
+      "position": [
+        1386.3952905867736,
+        -7.233194172361824
+      ],
+      "name": "Node"
+    },
+    "34a856ec-41e9-4a9b-991d-26059ea7af6f": {
+      "id": "34a856ec-41e9-4a9b-991d-26059ea7af6f",
+      "data": {
+        "name": "Create Project",
+        "projectName": "",
+        "settings": {
+          "Name Property Map": "clientName"
+        },
+        "type": null,
+        
+        "project": {
+          "_id": "5e3b05a193543c0016d837d1",
+          "projectType": "COMPUTE_NODE"
+        },
+
+        "inferenceModelId": null,
+        "training": {
+          "enabled": false,
+          "interval": 0,
+          "consensusConfirmations": 0,
+          "permissions": {
+            "owner": false,
+            "admin": false,
+            "user": false,
+            "specialist": false
+          }
+        },
+        "isComputeNode": true,
+        "sockets": {
+          "inputs": [
+            {
+              "name": "Input",
+              "type": "quoteProto"
+            }
+          ],
+          "outputs": []
+        }
+      },
+      "inputs": {
+        "createProject": {
+          "handler": "ProjectsService.createProject",
+          "connections": [
+            {
+              "node": "39e96e7d-cf41-4258-b1da-a9c11e886c99",
+              "output": "SwitchFunctionService.projectOutput",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "outputs": {},
+      "position": [
+        1383.829844520714,
+        -237.49293625926728
+      ],
+      "name": "Node"
+    }
+  }
+}
